@@ -8,33 +8,36 @@ function getComputerChoice() {
 //   getPlayerChoice, randomize and return in a lowercase. case to variable.
 
 function getPlayerChoice() {
-    let playerChoice = prompt("Rock, Paper, Scissors?", "").toLowerCase();
-    return playerChoice;
+    let choicePrompt = prompt("Rock, Paper, Scissors?", "").toLowerCase();
+    return choicePrompt;
 }
-
 //   playRound() function, takes getComputerChoice, getPlayerChoice.
 
 function playRound() {
     let computerChoice = getComputerChoice();
     let playerChoice = getPlayerChoice();
-    let result = computerChoice + playerChoice;{
+    let result = computerChoice + playerChoice;
+    console.log(result);{
         switch (result) {
-            case '01':
-            case '12':
-            case '30':
+            case '0paper':
+            case '1scissors':
+            case '3rock':
                 console.log("You Win!");
                 return 1;
-                break;
-            case '10':
-            case '21':
-            case '03':
+            case '1rock':
+            case '2paper':
+            case '0scissors':
                 console.log("You Lose!");
                 return 2;
-                break;
-            default: console.log("It's a tie!")
+            case "2scissors":
+            case "0rock":
+            case "1paper":
+                console.log("It's a tie!");
+                return 0;
+            default: console.log("This game isn't that hard to play...")
             return 0;
+            }
         }
-    }
 }
 
 //   game()Function repeating single round, loop until 5 wins on either end.
@@ -53,8 +56,8 @@ function playGame() {
             case 2:
                 computerWins++;
                 break;
+            }
         }
-}
 }
 
 playGame();
