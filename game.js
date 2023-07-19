@@ -1,18 +1,14 @@
 //   getComputerChoice, randomize the variable 1-3.
-
 function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 3);
     return computerChoice;
 }
-
 //   getPlayerChoice, randomize and return in a lowercase. case to variable.
-
 function getPlayerChoice() {
     let choicePrompt = prompt("Rock, Paper, Scissors?", "").toLowerCase();
     return choicePrompt;
 }
 //   playRound() function, takes getComputerChoice, getPlayerChoice.
-
 function playRound() {
     let computerChoice = getComputerChoice();
     let playerChoice = getPlayerChoice();
@@ -39,9 +35,7 @@ function playRound() {
             }
         }
 }
-
 //   game()Function repeating single round, loop until 5 wins on either end.
-
 function playGame() {
     let playerWins = 0;
     let computerWins = 0;
@@ -59,5 +53,4 @@ function playGame() {
             }
         }
 }
-
 playGame();
