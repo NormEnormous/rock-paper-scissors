@@ -5,8 +5,6 @@ function getComputerChoice() {
     return computerChoice;
 }
 
-getComputerChoice();
-
 //   getPlayerChoice, randomize and return in a lowercase. case to variable.
 
 function getPlayerChoice() {
@@ -19,28 +17,33 @@ function getPlayerChoice() {
 function playRound() {
     let computerChoice = getComputerChoice();
     let playerChoice = getPlayerChoice();
-    let result = computerChoice + playerChoice; {
-        console.log(result);
+    let result = computerChoice + playerChoice;{
         switch (result) {
             case '01':
             case '12':
             case '30':
                 console.log("You Win!");
+                return 1;
                 break;
             case '10':
             case '21':
             case '03':
                 console.log("You Lose!");
+                return 2;
                 break;
-            default: "It's a tie!"
+            default: console.log("It's a tie!")
+            return 0;
         }
     }
 }
-playRound();
-
-
 
 //   game()Function repeating single round, for loop until 5.
 
+function playGame() {
+    for (let i = 0; ((i < 5) && (roundResult = 1 || 2)); i++) {
+        let roundResult = playRound();
+        console.log(roundResult);
+    }
+}
 
-
+playGame();
