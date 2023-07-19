@@ -37,13 +37,24 @@ function playRound() {
     }
 }
 
-//   game()Function repeating single round, for loop until 5.
+//   game()Function repeating single round, loop until 5 wins on either end.
 
 function playGame() {
-    for (let i = 0; ((i < 5) && (roundResult = 1 || 2)); i++) {
-        let roundResult = playRound();
-        console.log(roundResult);
-    }
+    let playerWins = 0;
+    let computerWins = 0;
+    while (playerWins < 5 && computerWins < 5) {
+        let counter = playerWins + " "  + computerWins;
+        console.log(counter);
+        let result = playRound();
+        switch (result) {
+            case 1:
+                playerWins++;
+                break;
+            case 2:
+                computerWins++;
+                break;
+        }
+}
 }
 
 playGame();
