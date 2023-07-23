@@ -28,11 +28,11 @@ function chooseQuote() {
         updateQuote();
     }
     if (playerScore === 4 && computerScore <= 4) {
-        currentQuote = 'And man is about to win the game!';
+        currentQuote = 'Man is about to win the game!';
         updateQuote();
     }
     if (playerScore <= 4 && computerScore === 4) {
-        currentQuote = 'But the machine is about to win the game!';
+        currentQuote = 'The machine is about to win the game!';
         updateQuote();
     }
     if (playerScore === 4 && computerScore === 4) {
