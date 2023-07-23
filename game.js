@@ -70,7 +70,6 @@ function getComputerChoice() {
 }
 console.log(button)
 function finishGame() {
-    console.log(playerScore);
     if (playerScore === 5) {
         currentQuote = `Man has once again shown it\'s prowess!`;
         updateQuote();
@@ -92,7 +91,6 @@ function playRound(id) {
     let computerChoice = getComputerChoice();
     let playerChoice = id;
     let result = playerChoice + "-" + computerChoice;
-    console.log(result);
         if (result === 'rock-1' || result === 'paper-2' || result === 'scissors-0') {
             playerScoreCounter();
             lostResult();
