@@ -1,6 +1,6 @@
 const runningCount = document.querySelector('#running-count')
 const quote = document.querySelector('#quote')
-const button = document.querySelector('.button')
+const button = document.getElementsByClassName('button')
 
 let playerScore = 0;
 let computerScore = 0;
@@ -68,72 +68,46 @@ function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 3);
     return computerChoice;
 }
-
+console.log(button)
 function finishGame() {
-    updateQuote();
-    button.setAttribute =('disabled', true);
+    console.log(playerScore);
     if (playerScore === 5) {
-        currentQuote = `${roundResultQuote} man has once again shown it\'s prowess!`;
+        currentQuote = `Man has once again shown it\'s prowess!`;
         updateQuote();
+        for (var i=0; i < button.length; i++) {
+            button[i].setAttribute('disabled', true);;
+        }
     }
     if (computerScore === 5) {
-        currentQuote = `${roundResultQuote} machine has proven it\'s better than man!`;
+        currentQuote = `Machine has proven it\'s better than man!`;
         updateQuote();
-    }
-}
-//   playRound() function, takes getComputerChoice, getPlayerChoice.
-function playRound(id) {
-    if (playerScore >= 5 || computerScore >= 5) {
-        finishGame();
-    } else {
-        let computerChoice = getComputerChoice();
-        let playerChoice = id;
-        let result = playerChoice + "-" + computerChoice;
-        console.log(result);{
-            switch (result) {
-                case 'rock-1':
-                case 'paper-2':
-                case 'scissors-0':
-                    computerScoreCounter();
-                    lostResult();
-                    chooseQuote();
-                    break;
-                case 'rock-2':
-                case 'paper-0':
-                case 'scissors-1':
-                    playerScoreCounter();
-                    wonResult();
-                    chooseQuote();
-                    break;
-                case "scissors-2":
-                case "rock-0":
-                case "paper-1":
-                    updateCounters();
-                    drawResult();
-                    chooseQuote();
-                    break;
-            }
+        for (var i=0; i < button.length; i++) {
+            button[i].setAttribute('disabled', true);;
         }
     }
 }
-
-
-
-//   game()Function repeating single round, loop until 5 wins on either end.
-// function playGame() {
-//     let playerWins = 0;
-//     let computerWins = 0;
-//     while (playerWins < 5 && computerWins < 5) {
-//         let counter = playerWins + " - "  + computerWins;
-//         console.log(counter);
-//         let result = playRound();
-//         switch (result) {
-//             case 1:
-//                 playerWins++;
-//                 break;
-//             case 2:
-//                 computerWins++;
-//                 break;
-//             }
-//         }
-// }
+console.log(button)
+//   playRound() function, takes getComputerChoice, getPlayerChoice.
+function playRound(id) {
+    let computerChoice = getComputerChoice();
+    let playerChoice = id;
+    let result = playerChoice + "-" + computerChoice;
+    console.log(result);
+        if (result === 'rock-1' || result === 'paper-2' || result === 'scissors-0') {
+            playerScoreCounter();
+            lostResult();
+            chooseQuote();
+            finishGame()
+        }
+        else if (result === 'rock-2' || result === 'paper-0' || result === 'scissors-3') {
+            computerScoreCounter();
+            wonResult();
+            chooseQuote();
+            finishGame()
+        }
+        else if (result === 'rock-0' || result === 'paper-1' || result === 'scissors-2') {
+            updateCounters();
+            drawResult();
+            chooseQuote();
+        }
+}
