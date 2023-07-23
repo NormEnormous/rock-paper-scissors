@@ -6,9 +6,9 @@
     <title>Document</title>
 </head>
 <body>
-    <script src="game.js"></script>
-    <button id="rock"></button>
-    <button id="paper"></button>
-    <button id="scissors"></button>
-</body>
+    <script src="game.js" defer></script>
+    <button id="rock" onCLick="playRound(this.id)">rock</button>
+    <button id="paper" onCLick="playRound(this.id)">paper</button>
+    <button  id="scissors" onCLick="playRound(this.id)">scissors</button>
+    <div id="result"></div>
 </html>
